@@ -78,7 +78,7 @@ class Catalogo extends CI_Controller {
     }
 
     /**
-     * Seleccionamos los datos de un porducto a partir de su identificador
+     * Seleccionamos los datos de un producto a partir de su identificador
      * @method POST
      * @example https://zavaletazea.dev/api-195/catalogo/producto/$producto_id
      * @param  producto_id int identificador del registro en la base de datos 
@@ -135,7 +135,7 @@ class Catalogo extends CI_Controller {
     }
 
     /**
-     * Metodo para agregar una referencia a la lista de deseos
+     * Método para agregar una referencia a la lista de deseos
      * @method POST
      * @example https://zavaletazea.dev/api-195/catalogo/agrega_lista_deseos/$usuario_id/$producto_id
      * @param  int $usuario_id  
@@ -190,7 +190,7 @@ class Catalogo extends CI_Controller {
     }
 
     /**
-     * Método que retorna los producto de la lista de deseos de un usuario
+     * Método que retorna los productos de la lista de deseos de un usuario
      * @method POST
      * @examplehttps://zavaletazea.dev/api-195/catalogo/lista_deseos/$usuario_id
      * @param  int $usuario_id [description]

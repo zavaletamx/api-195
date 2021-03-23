@@ -56,21 +56,35 @@ class Catalogo_model extends CI_Model {
     }
 
     /**
-     * Mostramos la info d eun solo producto
+     * Mostramos la info de un solo producto que se encuentre activo
      * @param  int $producto_id  
      * @return dynamic           Objeto con los datos de un producto/null
      */
-    public function producto($producto_id)
+    public function producto($producto_id, $solo_activos = FALSE)
     {
         $this->db->where('producto_id', $producto_id);
+
+        if ($solo_activos) {
+            $this->db->where('activo', TRUE);
+        }
+
         $query = $this->db->get('producto');
 
+        /**
+         * Cuando realizamos consultas a mysql por medio de Codeigniter y 
+         * Active Record Class tenemos dos tipos de respuesta a una consulta
+         *
+         * result() ============ Retorna un arreglo de registros 
+         *                       (Aunque solo venga uno)
+         *
+         * row() =============== Retirna un objeto con un solo registro
+         */
         return $query->num_rows() === 1 ? $query->row() : NULL;
     }
 
     /**
      * Método para insertar una referencia a la lista de deseos
-     * @param  Object $data Objeto con los valores a isnertar en la tabla
+     * @param  Object $data Objeto con los valores a insertar en la tabla
      * @return boolean      Respuesta de la inserción a la tabla
      */
     public function agrega_lista_deseos($data)
@@ -79,7 +93,7 @@ class Catalogo_model extends CI_Model {
     }
 
     /**
-     * Metodo que retorna la lista de deseos de un usuario específico
+     * Método que retorna la lista de deseos de un usuario específico
      * @param  int $usuario_id 
      * @return dynamic         result/null
      */
