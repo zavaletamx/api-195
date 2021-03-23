@@ -14,10 +14,15 @@ class Auth extends CI_Controller {
         die("<h1>Auth Service</h>");
     }
 
+    /**
+     * _POST
+     * @return [type] [description]
+     */
     public function registro()
     {
         /*Validacion de datos*/
         $this->form_validation->set_rules('tel', 'tel', 'trim|required|exact_length[10]|numeric|is_unique[usuario.tel]');
+        //Siempre una cadena en MD5
         $this->form_validation->set_rules('pin', 'pin', 'trim|required|exact_length[32]|alpha_numeric');
 
         /*Si la validacion es correcta*/

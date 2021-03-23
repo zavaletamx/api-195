@@ -2,4 +2,5 @@ Options +FollowSymLinks
 Options -MultiViews
 RewriteEngine On
 RewriteCond $1 !^(index.php)
+# Agrega estre proyecto en "htdocs/api-195/" para que funcione 
 RewriteRule ^(.*)$ /api-195/index.php?$1 [L]
